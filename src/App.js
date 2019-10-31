@@ -34,7 +34,7 @@ class App extends React.Component {
 
   toggleTask = id => {
     let scopeTasks = this.state.tasks.slice();
-    console.log("Toggled", scopeTasks);
+    console.log(scopeTasks);
     scopeTasks = scopeTasks.map(item => {
       if (item.id === id) {
         item.completed = !item.completed;
@@ -48,9 +48,9 @@ class App extends React.Component {
 
   clearCompleted = e => {
     e.preventDefault();
-    let completedTask = this.state.tasks.filter(item => !item.completed);
-    this.setState({ completedTask });
-    console.log(this.state, completedTask);
+    const remainderList = this.state.tasks.filter(item => !item.completed);
+    this.setState({ tasks: remainderList });
+    console.log(remainderList);
   };
 
   render() {
